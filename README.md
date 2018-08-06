@@ -2,6 +2,7 @@
 <p align="center">The repository for the official Transport-App discord bot.</p>
 
 <h4>Used libraries</h4>
+
 - <a href="https://github.com/DV8FromTheWorld/JDA">JDA</a>
 - <a href="https://github.com/rzwitserloot/lombok">Lombok</a>
 - <a href="https://github.com/ronmamo/reflections">Reflections</a>

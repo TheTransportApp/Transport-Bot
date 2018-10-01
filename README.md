@@ -7,6 +7,7 @@
 - <a href="https://github.com/rzwitserloot/lombok">Lombok</a>
 - <a href="https://github.com/ronmamo/reflections">Reflections</a>
 - <a href="https://github.com/getsentry/sentry-java/tree/master/sentry-logback">Sentry logback</a>
+- <a href="https://github.com/brettwooldridge/HikariCP">HikariCP</a>
 
 
 <p>Join our discord:</p>

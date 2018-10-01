@@ -4,6 +4,6 @@
 target/
 dependency-reduced-pom.xml
 
-src/test/
+src/test
 
 config.properties

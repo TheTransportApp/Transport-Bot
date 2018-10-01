@@ -46,6 +46,10 @@ public class BetaCommand extends Command {
                 return;
             }
             message.getChannel().sendMessage(buildMessage("Erfolgreich", "Du erhältst in Kürze den Beta-Rang auf unserem Discord Server! \uD83C\uDF89", Color.GREEN)).queue();
+            if(Transport.getInstance().getGuild().getMember(message.getAuthor()).getRoles().stream().anyMatch(role -> role.getName().equals("Beta"))) {
+                message.getChannel().sendMessage(buildMessage("Fehler", "Du bist bereits Beta-Mitglied auf dem Discord-Server!", Color.RED)).queue();
+                return;
+            }
             Transport.getInstance().getGuild().getController().addRolesToMember(Transport.getInstance().getGuild().getMember(message.getAuthor()), Transport.getInstance().getGuild().getRolesByName("Beta", false).get(0)).queue();
         });
 

@@ -16,6 +16,9 @@
         </repository>
     </repositories>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -27,7 +30,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.7.1_385</version>
+            <version>3.8.0_423</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -60,8 +63,13 @@
             <version>2.7.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
-
 
     <build>
         <plugins>

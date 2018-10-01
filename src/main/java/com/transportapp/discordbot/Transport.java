@@ -48,14 +48,14 @@ public class Transport {
                     .setAutoReconnect(true)
                     .setEnableShutdownHook(true)
                     .setToken(String.valueOf(transportConfig.get("DiscordToken")))
-                    .buildBlocking();
+                    .build();
             guild = jda.getGuildById(455039767151902722L);
             jda.addEventListener(new GuildMessageReceivedListener());
 
             new Thread(GithubWebhookHandler::new);
 
             logger.info("Discord bot is online!");
-        } catch (LoginException | InterruptedException e) {
+        } catch (LoginException e) {
             Sentry.capture(e);
         }
     }

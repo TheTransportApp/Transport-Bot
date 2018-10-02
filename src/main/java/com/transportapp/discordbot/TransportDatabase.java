@@ -2,6 +2,7 @@ package com.transportapp.discordbot;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import io.sentry.Sentry;
 import lombok.Getter;
 
 import java.sql.Connection;
@@ -55,7 +56,7 @@ public class TransportDatabase {
                 validBetaUser.accept(resultSet.next());
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Sentry.capture(e);
         }
     }
 

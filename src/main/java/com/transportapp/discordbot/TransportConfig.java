@@ -1,5 +1,7 @@
 package com.transportapp.discordbot;
 
+import io.sentry.Sentry;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -19,14 +21,14 @@ public class TransportConfig {
             try {
                 configFile.createNewFile();
             } catch (IOException e) {
-                e.printStackTrace();
+                Sentry.capture(e);
             }
         }
         properties = new Properties();
         try (final FileReader fileReader = new FileReader(configFile)) {
             properties.load(fileReader);
         } catch (IOException e) {
-            e.printStackTrace();
+            Sentry.capture(e);
         }
     }
 
@@ -35,7 +37,7 @@ public class TransportConfig {
         try (final FileWriter fileWriter = new FileWriter(configFile)) {
             this.properties.store(fileWriter, "Tranport-Bot by Pierre Schwang");
         } catch (IOException e) {
-            e.printStackTrace();
+            Sentry.capture(e);
         }
     }
 

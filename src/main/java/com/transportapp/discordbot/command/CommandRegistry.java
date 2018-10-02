@@ -1,6 +1,7 @@
 package com.transportapp.discordbot.command;
 
 import com.transportapp.discordbot.Transport;
+import io.sentry.Sentry;
 import lombok.Getter;
 import org.reflections.Reflections;
 
@@ -51,7 +52,7 @@ public class CommandRegistry {
         try {
             registerCommand(commandClass.newInstance());
         } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
+            Sentry.capture(e);
         }
     }
 

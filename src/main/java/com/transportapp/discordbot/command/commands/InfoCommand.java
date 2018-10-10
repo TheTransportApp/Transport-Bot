@@ -19,9 +19,9 @@ public class InfoCommand extends Command {
         embedBuilder.addField("Autor", "Pierre Maurice Schwang", true);
         embedBuilder.addField("Source", "https://github.com/TheTransportApp/Transport-Bot", true);
 
-        embedBuilder.addField("Mitglieder (Discord)", String.valueOf(Transport.getInstance().getGuild().getMembers().size()), true);
-        embedBuilder.addField("Beta Mitglieder (Discord)", String.valueOf((int) Transport.getInstance().getGuild().getMembers().stream().filter(member -> member.getRoles().stream().anyMatch(role -> role.getName().equals("Beta"))).count()), true);
-
+        embedBuilder.addField("Mitglieder (Discord)", String.valueOf(Transport.getInstance().getJda().getGuildById(455039767151902722L).getMembers().size()), true);
+        embedBuilder.addField("Beta Mitglieder (Discord)", String.valueOf((int) Transport.getInstance().getJda().getGuildById(455039767151902722L).getMembers().stream().filter(member -> member.getRoles().stream().anyMatch(role -> role.getName().equals("Beta"))).count()), true);
+        message.getChannel().sendMessage(embedBuilder.build()).queue();
     }
 
 }

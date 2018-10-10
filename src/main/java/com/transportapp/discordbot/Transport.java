@@ -28,7 +28,6 @@ public class Transport {
     private static final Logger logger = LoggerFactory.getLogger(Transport.class);
 
     private JDA jda;
-    private Guild guild;
 
     private TransportConfig transportConfig;
     private TransportDatabase transportDatabase;
@@ -49,7 +48,6 @@ public class Transport {
                     .setEnableShutdownHook(true)
                     .setToken(String.valueOf(transportConfig.get("DiscordToken")))
                     .build();
-            guild = jda.getGuildById(455039767151902722L);
             jda.addEventListener(new GuildMessageReceivedListener());
 
             new Thread(GithubWebhookHandler::new);

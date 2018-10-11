@@ -26,7 +26,7 @@ public class HelpCommand extends Command {
     public void execute(Message message, String[] args) {
         if(!message.getChannel().getName().toLowerCase().contains("bot")) return;
         StringJoiner stringJoiner = new StringJoiner("\n");
-        Transport.getInstance().getCommandRegistry().getCommands().forEach(command -> stringJoiner.add("." + command.getCommand() + " - " + command.getDescription()));
+        Transport.getInstance().getCommandRegistry().getCommands().forEach(command -> stringJoiner.add("!" + command.getCommand() + " - " + command.getDescription()));
         message.getChannel().sendMessage(buildMessage(
                 "Hilfe",
                 stringJoiner.toString(),

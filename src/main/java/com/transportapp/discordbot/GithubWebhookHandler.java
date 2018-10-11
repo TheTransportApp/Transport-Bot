@@ -3,18 +3,14 @@ package com.transportapp.discordbot;
 import org.json.JSONObject;
 import spark.Spark;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  * @author Pierre Schwang
  * @date 09.08.2018
  */
 public class GithubWebhookHandler {
 
-    private ExecutorService executorService = Executors.newCachedThreadPool();
-
     public GithubWebhookHandler() {
+        System.out.println("GitHub Webhook receiver running on :1337");
         Spark.port(1337);
         Spark.post("/github-webhook", (req, res) -> {
             String eventName = req.headers("X-GitHub-Event");
@@ -22,6 +18,10 @@ public class GithubWebhookHandler {
             Transport.getLogger().info(eventName);
             Transport.getLogger().info(jsonObject.toString());
             return "";
+        });
+        Spark.get("/*", (request, response) -> {
+            response.header("Content-Type", "application/json");
+            return "{\"message\": \"What are you doing here?\"}";
         });
     }
 }

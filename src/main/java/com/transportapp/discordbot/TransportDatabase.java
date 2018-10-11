@@ -26,7 +26,7 @@ public class TransportDatabase {
 
     public TransportDatabase() {
         HikariConfig hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl(String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC",
+        hikariConfig.setJdbcUrl(String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC&useSSL=false",
                 Transport.getInstance().getTransportConfig().get("MySQL-host"),
                 Transport.getInstance().getTransportConfig().get("MySQL-port"),
                 Transport.getInstance().getTransportConfig().get("MySQL-database")));

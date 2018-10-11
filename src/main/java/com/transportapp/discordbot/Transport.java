@@ -38,6 +38,7 @@ public class Transport {
         initTransportConfig();
         Sentry.init(String.valueOf(transportConfig.get("SentryDSN")));
         logger.info("Starting discord bot...");
+        new Thread(GithubWebhookHandler::new).start();
         transportDatabase = new TransportDatabase();
         commandRegistry = new CommandRegistry();
         try {
@@ -49,8 +50,6 @@ public class Transport {
                     .setToken(String.valueOf(transportConfig.get("DiscordToken")))
                     .build();
             jda.addEventListener(new GuildMessageReceivedListener());
-
-            new Thread(GithubWebhookHandler::new);
 
             logger.info("Discord bot is online!");
         } catch (LoginException e) {
